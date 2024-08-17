@@ -91,13 +91,13 @@ this.routes.queryParams.subscribe(params => {
 })
 ```
 
-# 3. Lazy Loading
+# 3. Lazy Loading 🔁
 
 ```
 Angular only loads modules as needed, rather than loading all modules when the application launches
 ```
 
-# 4. Route Guard
+# 4. Route Guard 🔐
 
 ```
 Use route guards to prevent users from navigating to parts of an application without authorization
