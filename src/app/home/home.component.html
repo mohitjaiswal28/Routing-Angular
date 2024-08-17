@@ -1,0 +1,55 @@
+<div
+  class="grid grid-cols-2 place-items-center mt-4 bg-green-300 rounded mx-20 py-40"
+>
+  <!-- Path Parameter -->
+  <div>
+    <div class="col-span-1 p-4">
+      <label for="pathinput" class="px-2">Enter Book ID:</label>
+      <input
+        type="number"
+        id="pathinput"
+        class="h-12 rounded border-black px-4 my-4"
+        [(ngModel)]="pathBookSearch"
+      />
+
+      <br />
+
+      <label for="pathinput" class="px-2">Enter Author Name:</label>
+      <input
+        type="text"
+        id="pathinput"
+        class="h-12 rounded border-black px-4"
+        [(ngModel)]="pathAuthorSearch"
+      />
+    </div>
+
+    <button class="grid place-items-center py-4">
+      <a
+        [routerLink]="['book', pathBookSearch, 'author', pathAuthorSearch]"
+        class="bg-yellow-400 p-3 px-8 rounded"
+        >Path with book ID {{ pathBookSearch }} and author
+        {{ pathAuthorSearch }}</a
+      >
+    </button>
+  </div>
+
+  <!-- Query Parameter -->
+  <div class="col-span-1 p-4">
+    <label for="pathinput" class="px-2">Search for product:</label>
+    <input
+      type="text"
+      id="pathinput"
+      class="h-12 rounded border-black px-4"
+      [(ngModel)]="querySearch"
+    />
+
+    <button class="grid place-items-center py-4">
+      <a
+        class="bg-yellow-400 p-3 px-8 rounded"
+        [routerLink]="['product']"
+        [queryParams]="{ search: querySearch }"
+        >Search for {{ querySearch }}</a
+      >
+    </button>
+  </div>
+</div>
