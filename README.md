@@ -21,7 +21,7 @@ Angular routing is a powerful feature that allows you to navigate between differ
 
 ```
 const routes: Routes = [
-    {path: 'books/:boodID/author/"authorID', component: BookComponent}
+    {path: 'books/:boodID/author/:authorID', component: BookComponent}
 ]
 ```
 
