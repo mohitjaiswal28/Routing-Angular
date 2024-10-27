@@ -1,8 +1,6 @@
 # Angular Routing 🌐
 
-```
-Angular routing is a powerful feature that allows you to navigate between different components or modules within your Angular application. It provides a seamless user experience by dynamically updating the content without reloading the entire page
-```
+Angular routing is a powerful feature that allows you to navigate between different components or modules within your Angular application. It provides a seamless user experience by dynamically updating the content without reloading the entire page.
 
 ## Path vs Query Parameters
 
@@ -93,94 +91,30 @@ this.routes.queryParams.subscribe(params => {
 
 # 3. Lazy Loading 🔁
 
-```
-Angular only loads modules as needed, rather than loading all modules when the application launches
-```
+Angular only loads modules as needed, rather than loading all modules when the application launches.
 
-# 4. Route Guard 🔐
+# How to Clone and Run this Project 🖥️
 
-```
-Use route guards to prevent users from navigating to parts of an application without authorization
-```
-
-### Route guards available are:
-
-### 1. canActivate
-
-> You want to make sure that only logged-in users can access this page. If a user tries to access the "Home" without being logged in, they should be redirected to the "Login" page.
+1. Clone the repository:
 
 ```
-// auth.service.ts
-import { Injectable } from '@angular/core';
-
-@Injectable({
-  providedIn: 'root'
-})
-export class AuthService {
-  private isLoggedIn: boolean = false;
-
-  login() {
-    this.isLoggedIn = true;
-  }
-
-  logout() {
-    this.isLoggedIn = false;
-  }
-
-  isAuthenticated(): boolean {
-    return this.isLoggedIn;
-  }
-}
-
+git clone https://github.com/mohitjaiswal28/Routing-Angular.git
 ```
 
-```
-// auth.guard.ts
-import { Injectable } from '@angular/core';
-import { CanActivate, Router } from '@angular/router';
-import { AuthService } from './auth.service';
-
-@Injectable({
-  providedIn: 'root'
-})
-export class AuthGuard implements CanActivate {
-
-  constructor(private authService: AuthService, private router: Router) {}
-
-  canActivate(): boolean {
-    if (this.authService.isAuthenticated()) {
-      return true;
-    } else {
-      // Redirect to the login page
-      this.router.navigate(['/login']);
-      return false;
-    }
-  }
-}
-```
+2. Navigate to the project directory:
 
 ```
-{ path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard] },
+cd Routing-Angular
 ```
 
-### 2. canActivateChild
+3. Install the dependencies:
 
-> Let's extend the previous example. Suppose the "Home" has child routes like "Reports" and "Settings," and you want to protect all child routes under "Home" so that only logged-in users can access them.
+```
+npm install
+```
 
-### 3. canDeactivate
+4. Run the application:
 
-> Used to prevent users from leaving a route without confirmation.
-
-### 4. canMatch
-
-> New feature in Angular that allows you to dynamically determine whether a route should be matched based on custom logic. This guard gives you fine-grained control over route matching, allowing you to include or exclude routes based on certain conditions.
-
-> For example, you might want to restrict access to a "Special Offers" page to only be available on Fridays. You can use the canMatch guard to implement this logic.
-
-### 5. resolve
-
-> Used to pre-fetch data before navigating to a route. It helps ensure that necessary data is available to a component when it is loaded. This is particularly useful for scenarios where you want to ensure that data is available before the component initializes, avoiding issues like components rendering incomplete data or showing loading states.
-
-### 6. canLoad
-
-> Used to control whether a feature module should be loaded or not. This guard is particularly useful for lazy-loaded modules, where you may want to prevent users from loading certain parts of your application based on conditions such as user roles, permissions, or other criteria.
+```
+ng serve
+```

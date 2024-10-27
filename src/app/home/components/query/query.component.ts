@@ -7,19 +7,15 @@ import { log } from 'console';
   standalone: true,
   imports: [],
   templateUrl: './query.component.html',
-  styleUrl: './query.component.css'
 })
 
 export class QueryComponent {
-
   querySearch1: string = '';
   querySearch2: string = '';
 
-  constructor(private route: ActivatedRoute) {
-  }
+  constructor(private route: ActivatedRoute) { }
 
   ngOnInit(): void {
-
     console.log(this.route.snapshot.queryParams);
 
     // Using snapshot (static)

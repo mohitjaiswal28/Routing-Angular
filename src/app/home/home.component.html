@@ -31,6 +31,17 @@
         {{ pathAuthorSearch }}</a
       >
     </button>
+
+    <!-- Or -->
+
+    <button
+      class="grid place-items-center py-4"
+      class="bg-yellow-400 p-3 px-8 rounded"
+      (click)="redirectUsingPath()"
+    >
+      Path with book ID {{ pathBookSearch }} and author
+      {{ pathAuthorSearch }}
+    </button>
   </div>
 
   <!-- Query Parameter -->
@@ -50,6 +61,16 @@
         [queryParams]="{ search: querySearch }"
         >Search for {{ querySearch }}</a
       >
+    </button>
+
+    <!-- Or -->
+
+    <button
+      class="grid place-items-center py-4"
+      class="bg-yellow-400 p-3 px-8 rounded"
+      (click)="redirectUsingQuery()"
+    >
+      Search for {{ querySearch }}
     </button>
   </div>
 </div>
